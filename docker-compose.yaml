@@ -45,9 +45,7 @@ services:
     - ./config:/prometheus/config
     - ./data:/data
     depends_on:
-    - activemq
     - es_exporter
-    - mongo_exporter
     networks:
       infranet:
         aliases:
