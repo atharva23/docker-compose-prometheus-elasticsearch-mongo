@@ -4,7 +4,7 @@ services:
     restart: 'always'
     ports:
     - '9200:9200'
-    image: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
     container_name: elasticsearch-container
     environment:
     - 'discovery.type=single-node'
@@ -19,7 +19,7 @@ services:
     image: justwatch/elasticsearch_exporter
     container_name: es-exporter-container
     command:
-    - '-es.uri=http://elasticsearch-service:9200'
+    - --es.uri=http://elasticsearch-service:9200
     depends_on:
     - elastic_search
     networks:
